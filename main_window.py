@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 from PySide6.QtWidgets import QMainWindow
-from ui_form import Ui_MainWindow
+from ui_main_window import Ui_MainWindow
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
