@@ -1,5 +1,5 @@
 # This Python file uses the following encoding: utf-8
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QFileDialog
 from ui_main_window import Ui_MainWindow
 
 class MainWindow(QMainWindow):
@@ -8,3 +8,12 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowTitle("Action Studio")
+
+        self.ui.actionNew_Project.triggered.connect(self.open_file)
+
+
+    def open_file(self):
+        path, _ = QFileDialog.getOpenFileName(self, "Open Video", "", "Video Files (*.mp4 *.mkv *.avi *.mov *.webm)")
+        if path:
+            self.ui.videoPlayer.start_playback(path)
+

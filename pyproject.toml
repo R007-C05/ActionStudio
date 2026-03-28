@@ -2,4 +2,4 @@
 name = "PySide Widgets Project"
 
 [tool.pyside6-project]
-files = ["main.py", "main_window.py", "main_window.ui", "video_viewport.py"]
+files = ["icons.qrc", "main.py", "main_window.py", "main_window.ui", "video_player.py", "video_player.ui"]
