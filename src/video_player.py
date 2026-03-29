@@ -2,7 +2,7 @@
 from PySide6.QtWidgets import QWidget
 from PySide6.QtMultimedia import QMediaPlayer, QAudioOutput
 from PySide6.QtCore import Qt, QUrl, QSize
-from PySide6.QtGui import QIcon, QPalette, QColor
+from PySide6.QtGui import QIcon, QColor, QPainter
 
 from ui_video_player import Ui_VideoPlayer
 import rc_icons
@@ -13,7 +13,6 @@ class VideoPlayer(QWidget):
         self.ui = Ui_VideoPlayer()
         self.ui.setupUi(self)
 
-        self.set_default_screen(self.ui.videoViewport)
         self.set_timestamp_width()
 
         self.player = QMediaPlayer(self)
@@ -24,12 +23,6 @@ class VideoPlayer(QWidget):
         self.icon_play  = QIcon(":/icons/icons/media-playback-start.png")
         self.icon_pause = QIcon(":/icons/icons/media-playback-pause.png")
         self.ui.playButton.setIcon(self.icon_play)
-
-    def set_default_screen(self, viewport):
-        palette = viewport.palette()
-        palette.setColor(QPalette.ColorRole.Window, QColor(Qt.GlobalColor.black))
-        viewport.setPalette(palette)
-        viewport.setAutoFillBackground(True)
 
     def seek(self, position_ms):
         self.player.setPosition(position_ms)
@@ -66,8 +59,9 @@ class VideoPlayer(QWidget):
 
         self.ui.playButton.setIcon(self.icon_pause)
 
-        self.player.setVideoOutput(self.ui.videoViewport)
+        self.player.setVideoOutput(self.ui.videoViewport.videoWidget())
         self.player.setSource(QUrl.fromLocalFile(video_url))
+        self.ui.videoViewport.show_black_screen(False)
         self.player.play()
 
     def set_timestamp_width(self):

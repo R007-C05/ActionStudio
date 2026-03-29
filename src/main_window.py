@@ -11,7 +11,6 @@ class MainWindow(QMainWindow):
 
         self.ui.actionNew_Project.triggered.connect(self.open_file)
 
-
     def open_file(self):
         path, _ = QFileDialog.getOpenFileName(self, "Open Video", "", "Video Files (*.mp4 *.mkv *.avi *.mov *.webm)")
         if path:

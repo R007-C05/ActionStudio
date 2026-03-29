@@ -4,11 +4,12 @@ name = "Action Studio"
 [tool.pyside6-project]
 files = [
     "main.py",
+    "resources/icons.qrc",
     "src/main_window.py",
     "src/video_player.py",
     "src/video_timeline.py",
+    "src/video_viewport.py",
     "ui/main_window.ui",
     "ui/video_player.ui",
     "ui/video_timeline.ui",
-    "resources/icons.qrc",
 ]
