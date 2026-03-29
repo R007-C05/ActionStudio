@@ -1,5 +1,14 @@
 [project]
-name = "PySide Widgets Project"
+name = "Action Studio"
 
 [tool.pyside6-project]
-files = ["icons.qrc", "main.py", "main_window.py", "main_window.ui", "video_player.py", "video_player.ui"]
+files = [
+    "main.py",
+    "src/main_window.py",
+    "src/video_player.py",
+    "src/video_timeline.py",
+    "ui/main_window.ui",
+    "ui/video_player.ui",
+    "ui/video_timeline.ui",
+    "resources/icons.qrc",
+]
